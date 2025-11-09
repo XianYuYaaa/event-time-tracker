@@ -1,0 +1,1191 @@
+/* ========== 全局样式 ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== Element Plus 组件样式调整 ========== */
+/* 全局 el-select 最小宽度设置 */
+.el-select {
+  min-width: 120px;
+}
+
+/* 确保弹窗中的 el-select 有足够宽度 */
+.el-dialog .el-select {
+  width: 100%;
+  min-width: 180px;
+}
+
+.el-dialog .el-select .el-input__wrapper {
+  width: 100%;
+  min-width: 180px;
+}
+
+.el-dialog .el-select .el-input__inner {
+  width: 100%;
+  min-width: 180px;
+}
+
+/* 确保 select 下拉选项有足够宽度 */
+.el-select-dropdown {
+  min-width: 180px !important;
+}
+
+/* 确保选中项文本能够显示 */
+.el-select .el-select__selected-item {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========== Layout 布局样式 ========== */
+.layout-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.layout-aside {
+  background-color: #001529;
+  transition: width 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-aside .logo-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.layout-aside .logo-container .logo-text {
+  white-space: nowrap;
+}
+
+.layout-aside .el-menu-vertical {
+  border-right: none;
+  background-color: #001529;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.layout-aside .el-menu-vertical .el-menu-item {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.layout-aside .el-menu-vertical .el-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+
+.layout-aside .el-menu-vertical .el-menu-item.is-active {
+  background-color: #1890ff !important;
+  color: #fff !important;
+}
+
+.layout-aside .el-menu-vertical .el-sub-menu__title {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.layout-aside .el-menu-vertical .el-sub-menu__title:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+
+.layout-aside .el-menu-vertical .el-sub-menu .el-menu-item {
+  min-width: 180px;
+  background-color: #000c17 !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.layout-aside .el-menu-vertical .el-sub-menu .el-menu-item:hover {
+  background-color: rgba(162, 208, 240, 0.962) !important;
+  color: #fff !important;
+}
+
+.layout-aside .el-menu-vertical .el-sub-menu .el-menu-item.is-active {
+  background-color: #1890ff !important;
+  color: #fff !important;
+}
+
+.layout-aside .collapse-btn {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.layout-aside .collapse-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.layout-main {
+  background-color: #f5f7fa;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Home 页面样式 ========== */
+.home-page {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.home-page .form-card {
+  width: 100%;
+  margin: 0;
+  height: fit-content;
+}
+
+.home-page .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page .card-header .header-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.home-page .el-form-item__label {
+  font-weight: 500;
+}
+
+/* ========== Query 查询页面样式 ========== */
+.query-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.query-page .filter-card {
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.query-page .filter-card .filter-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.query-page .filter-card .filter-row:last-child {
+  margin-bottom: 0;
+}
+
+.query-page .filter-card .filter-item {
+  margin-bottom: 0;
+}
+
+.query-page .table-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.query-page .table-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.query-page .table-card .el-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.query-page .table-card .el-table {
+  flex: 1;
+}
+
+/* ========== Timeline 数据可视化页面样式 ========== */
+.timeline-page {
+  height: 100%;
+}
+
+.timeline-page .el-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-page .el-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.timeline-page .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline-page .filters {
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.timeline-page .el-divider {
+  margin: 12px 0;
+}
+
+.timeline-page .timeline-view {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.timeline-page .timeline-container .date-group {
+  margin-bottom: 40px;
+}
+
+.timeline-page .date-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.timeline-page .date-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.timeline-page .date-divider {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #409eff, transparent);
+}
+
+.timeline-page .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.timeline-page .event-card {
+  position: relative;
+  border-left: 4px solid #409eff;
+  transition: all 0.3s;
+}
+
+.timeline-page .event-card.confirmed {
+  border-left-color: #67c23a;
+}
+
+.timeline-page .event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-page .card-city {
+  font-size: 15px;
+  font-weight: 700;
+  color: #409eff;
+  margin-bottom: 8px;
+}
+
+.timeline-page .card-category {
+  font-weight: 600;
+  color: #303133;
+  font-size: 17px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.timeline-page .card-note {
+  color: #606266;
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-page .card-source {
+  font-size: 12px;
+  color: #909399;
+  margin-top: 8px;
+}
+
+.timeline-page .card-source .el-link {
+  font-size: 12px;
+}
+
+.timeline-page .empty-state {
+  padding: 60px 0;
+  text-align: center;
+}
+
+/* ========== TimePointManage 节点管理页面样式 ========== */
+.timepoint-manage-page {
+  height: 100%;
+}
+
+.timepoint-manage-page .el-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.timepoint-manage-page .el-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.timepoint-manage-page .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timepoint-manage-page .el-table {
+  flex: 1;
+}
+
+.timepoint-manage-page .el-pagination {
+  flex-shrink: 0;
+  margin-top: 20px;
+}
+
+/* ========== CategoryManage 分类管理页面样式 ========== */
+.category-manage-page {
+  height: 100%;
+}
+
+.category-manage-page .el-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-manage-page .el-card__body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.category-manage-page .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-manage-page .el-tree {
+  font-size: 16px;
+}
+
+.category-manage-page .el-tree .el-tree-node__content {
+  height: 44px;
+  line-height: 44px;
+}
+
+.category-manage-page .custom-tree-node {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+  font-size: 16px;
+}
+
+.category-manage-page .custom-tree-node .node-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-manage-page .custom-tree-node .node-actions {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.category-manage-page .custom-tree-node:hover .node-actions {
+  opacity: 1;
+}
+
+/* ========== RegionManage 区域管理页面样式 ========== */
+.region-manage-page {
+  height: 100%;
+}
+
+.region-manage-page .el-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.region-manage-page .el-card__body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.region-manage-page .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ========== Settings 设置页面样式 ========== */
+.settings-page {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.settings-page .setting-card {
+  margin-bottom: 20px;
+}
+
+.settings-page .data-management .action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ========== 通用工具类 ========== */
+/* 布局类 */
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-gap-8 {
+  gap: 8px;
+}
+
+.flex-gap-12 {
+  gap: 12px;
+}
+
+.flex-gap-16 {
+  gap: 16px;
+}
+
+/* 间距类 */
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.ml-12 {
+  margin-left: 12px;
+}
+
+.mr-6 {
+  margin-right: 6px;
+}
+
+/* 文本类 */
+.text-info {
+  font-size: 13px;
+  color: #909399;
+}
+
+.text-small {
+  font-size: 12px;
+}
+
+.text-monospace {
+  font-family: monospace;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.font-weight-600 {
+  font-weight: 600;
+}
+
+/* 宽度类 */
+.w-100 {
+  width: 100%;
+}
+
+.max-w-450 {
+  max-width: 450px;
+}
+
+/* 卡片头部通用样式 */
+.card-header-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 操作按钮图标 */
+.btn-icon {
+  margin-right: 6px;
+}
+
+/* 链接样式 */
+.link-primary {
+  color: #409eff;
+  text-decoration: none;
+}
+
+.link-primary:hover {
+  text-decoration: underline;
+}
+
+/* 列表样式 */
+.list-styled {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+/* ========== Timeline组件样式 ========== */
+/* ---------- DateGroupCard（按日期分组的卡片） ---------- */
+/* 卡片容器 */
+.date-group-card {
+  background: #ffffff;
+  border: 1px solid #e4e7ed;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.date-group-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #d0d7de;
+}
+
+.date-group-card :deep(.el-card__body) {
+  padding: 0;
+}
+
+/* 日期头部 */
+.date-group-card .date-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f6f8fa;
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.date-group-card .date-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.date-group-card .date-icon {
+  color: #409eff;
+  flex-shrink: 0;
+}
+
+.date-group-card .date-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
+  white-space: nowrap;
+}
+
+.date-group-card .event-count {
+  font-size: 14px;
+  color: #606266;
+  white-space: nowrap;
+}
+
+.date-group-card .event-count.has-reminder {
+  color: #f56c6c;
+  font-weight: 600;
+}
+
+.date-group-card .expand-btn {
+  font-size: 13px;
+  color: #409eff;
+}
+
+.date-group-card .expand-btn :deep(.el-icon) {
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+.date-group-card .expand-btn:hover {
+  color: #337ecc;
+}
+
+.date-group-card .expand-btn .rotate {
+  transform: rotate(180deg);
+}
+
+/* 事件列表 */
+.date-group-card .events-list {
+  padding: 0;
+}
+
+.date-group-card .events-list.compact {
+  max-height: 480px;
+  overflow: hidden;
+}
+
+/* 事件行 */
+.date-group-card .event-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f2f5;
+  transition: all 0.2s ease;
+}
+
+.date-group-card .event-row:hover {
+  background: #f6f8fa;
+}
+
+.date-group-card .event-row:last-child {
+  border-bottom: none;
+}
+
+.date-group-card .event-row.has-reminder {
+  background: #fff5f5;
+}
+
+.date-group-card .event-row.has-reminder:hover {
+  background: #ffe8e8;
+}
+
+/* 状态指示器 */
+.date-group-card .event-status {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.date-group-card .status-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e4e7ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.date-group-card .status-indicator .el-icon {
+  color: #ffffff;
+}
+
+.date-group-card .status-indicator.confirmed {
+  background: #67c23a;
+}
+
+.date-group-card .status-indicator.reminder {
+  background: #f56c6c;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* 事件主要内容 */
+.date-group-card .event-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.date-group-card .event-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+/* 分类显示（一二三级）*/
+.date-group-card .event-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.date-group-card .event-category .category-l1 {
+  font-weight: 600;
+  color: #409eff;
+}
+
+.date-group-card .event-category .arrow-icon {
+  color: #dcdfe6;
+}
+
+.date-group-card .event-category .category-l2 {
+  font-weight: 600;
+  color: #0e93ffcf;
+}
+
+.date-group-card .event-category .category-l3 {
+  font-weight: 600;
+  color: #6e9eff;
+}
+
+/* 区域显示 */
+.date-group-card .event-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #ff5a00a6;
+}
+
+.date-group-card .event-region .el-icon {
+  color: #ff5a00a6;
+}
+
+/* 备注显示 */
+.date-group-card .event-note {
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+/* 事件附加信息（提醒、时长、来源）*/
+.date-group-card .event-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.date-group-card .reminder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: #f56c6c;
+  color: white;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.date-group-card .reminder-badge .el-icon {
+  font-size: 12px;
+}
+
+.date-group-card .duration-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #909399;
+}
+
+.date-group-card .source-link,
+.date-group-card .source-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.date-group-card .source-text {
+  color: #909399;
+}
+
+/* 已确认标识 */
+.date-group-card .event-confirmed-badge {
+  flex-shrink: 0;
+  color: #67c23a;
+  padding-top: 2px;
+}
+
+/* 展开提示 */
+.date-group-card .expand-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 20px;
+  color: #909399;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-top: 1px dashed #e4e7ed;
+}
+
+.date-group-card .expand-hint:hover {
+  color: #409eff;
+  background: #f6f8fa;
+}
+
+.date-group-card .expand-hint .el-icon {
+  font-size: 16px;
+}
+
+/* ---------- CategoryGroupCard（按分类分组的卡片） ---------- */
+/* 卡片容器 */
+.category-group-card {
+  background: #ffffff;
+  border: 1px solid #e4e7ed;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.category-group-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #d0d7de;
+}
+
+.category-group-card :deep(.el-card__body) {
+  padding: 0;
+}
+
+/* 分类头部 */
+.category-group-card .category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f6f8fa;
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.category-group-card .category-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-group-card .category-icon {
+  color: #409eff;
+  flex-shrink: 0;
+}
+
+.category-group-card .category-l1 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.category-group-card .arrow-icon {
+  color: #909399;
+}
+
+.category-group-card .category-l2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #606266;
+}
+
+.category-group-card .event-count {
+  font-size: 14px;
+  color: #606266;
+  white-space: nowrap;
+}
+
+.category-group-card .event-count.has-reminder {
+  color: #f56c6c;
+  font-weight: 600;
+}
+
+.category-group-card .expand-btn {
+  font-size: 13px;
+  color: #409eff;
+}
+
+.category-group-card .expand-btn :deep(.el-icon) {
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+.category-group-card .expand-btn:hover {
+  color: #337ecc;
+}
+
+.category-group-card .expand-btn .rotate {
+  transform: rotate(180deg);
+}
+
+/* 事件列表 */
+.category-group-card .events-list {
+  padding: 0;
+}
+
+.category-group-card .events-list.compact {
+  max-height: 480px;
+  overflow: hidden;
+}
+
+/* 事件行（与DateGroupCard共用相同样式）*/
+.category-group-card .event-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f2f5;
+  transition: all 0.2s ease;
+}
+
+.category-group-card .event-row:hover {
+  background: #f6f8fa;
+}
+
+.category-group-card .event-row:last-child {
+  border-bottom: none;
+}
+
+.category-group-card .event-row.has-reminder {
+  background: #fff5f5;
+}
+
+.category-group-card .event-row.has-reminder:hover {
+  background: #ffe8e8;
+}
+
+.category-group-card .event-status {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.category-group-card .status-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e4e7ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.category-group-card .status-indicator .el-icon {
+  color: #ffffff;
+}
+
+.category-group-card .status-indicator.confirmed {
+  background: #67c23a;
+}
+
+.category-group-card .status-indicator.reminder {
+  background: #f56c6c;
+  animation: pulse 2s infinite;
+}
+
+.category-group-card .event-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.category-group-card .event-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+/* 日期显示 */
+.category-group-card .event-date {
+  font-size: 15px;
+  font-weight: 600;
+  color: #303133;
+}
+
+/* 三级分类内联显示 */
+.category-group-card .category-l3-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6e9eff;
+}
+
+.category-group-card .category-l3-inline .arrow-icon {
+  color: #dcdfe6;
+}
+
+/* 区域显示 */
+.category-group-card .event-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #ff5a00a6;
+}
+
+.category-group-card .event-region .el-icon {
+  color: #ff5a00a6;
+}
+
+/* 备注显示 */
+.category-group-card .event-note {
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+/* 事件附加信息 */
+.category-group-card .event-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.category-group-card .reminder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: #f56c6c;
+  color: white;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.category-group-card .reminder-badge .el-icon {
+  font-size: 12px;
+}
+
+.category-group-card .duration-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #909399;
+}
+
+.category-group-card .source-link,
+.category-group-card .source-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.category-group-card .source-text {
+  color: #909399;
+}
+
+.category-group-card .event-confirmed-badge {
+  flex-shrink: 0;
+  color: #67c23a;
+  padding-top: 2px;
+}
+
+.category-group-card .expand-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 20px;
+  color: #909399;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-top: 1px dashed #e4e7ed;
+}
+
+.category-group-card .expand-hint:hover {
+  color: #409eff;
+  background: #f6f8fa;
+}
+
+.category-group-card .expand-hint .el-icon {
+  font-size: 16px;
+}

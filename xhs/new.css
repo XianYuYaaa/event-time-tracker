@@ -53,6 +53,11 @@
   overflow-y: auto;
 }
 
+.xhs-card__content.is-positioned {
+  position: absolute;
+  margin: 0;
+}
+
 .image-content {
   padding: var(--template-padding);
   color: var(--template-text-color, #333333);

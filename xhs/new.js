@@ -196,6 +196,78 @@
     return theme;
   }
 
+  function getContentRect(themeId, options) {
+    const theme = getTheme(themeId);
+    const width = options && options.width ? options.width : CARD_WIDTH;
+    const height = options && options.height ? options.height : CARD_HEIGHT;
+    const padding = theme.textPadding || 35;
+
+    switch (themeId) {
+      case 'polaroid': {
+        const marginX = 50;
+        const marginY = 60;
+        const bottomBlankHeight = 450;
+        const photoHeight = height - (marginY * 2) - bottomBlankHeight;
+        return {
+          x: marginX + padding,
+          y: marginY + photoHeight + 40,
+          width: width - (marginX * 2) - (padding * 2),
+          height: bottomBlankHeight - 120
+        };
+      }
+      case 'notion-style':
+        return { x: padding, y: 120, width: width - (padding * 2), height: height - 120 - 80 };
+      case 'elegant-book':
+        return { x: padding + 10, y: 130, width: width - (padding * 2) - 10, height: height - 130 - 110 };
+      case 'ios-memo': {
+        const paperX = 15;
+        const paperY = 55;
+        const paperW = width - 30;
+        const paperH = height - 110;
+        return {
+          x: paperX + padding,
+          y: paperY + padding,
+          width: paperW - (padding * 2),
+          height: paperH - (padding * 2)
+        };
+      }
+      case 'swiss-studio': {
+        const bottomOffset = Math.max(padding, 60);
+        return { x: padding, y: padding, width: width - (padding * 2), height: height - padding - bottomOffset };
+      }
+      case 'minimalist-magazine':
+        return { x: padding, y: 100, width: width - (padding * 2), height: height - 100 - 80 };
+      case 'aura-gradient':
+        return { x: 25 + padding, y: 30 + padding, width: width - 50 - (padding * 2), height: height - 30 - 60 - (padding * 2) };
+      case 'deep-night':
+        return { x: 20 + padding, y: 30 + padding, width: width - 40 - (padding * 2), height: height - 30 - 60 - (padding * 2) };
+      case 'pro-doc': {
+        const winX = 15;
+        const winW = width - 30;
+        const winY = 40;
+        const winBottomMargin = 60;
+        const winH = height - winY - winBottomMargin;
+        const headerHeight = 30;
+        const gapBelowHeader = 20;
+        return {
+          x: winX + padding,
+          y: winY + headerHeight + gapBelowHeader + (padding / 2),
+          width: winW - (padding * 2),
+          height: (winH - headerHeight - gapBelowHeader) - padding
+        };
+      }
+      case 'blank':
+      case 'pink':
+      case 'macaron':
+      case 'ocean':
+      case 'forest':
+      case 'sunset':
+      case 'midnight':
+      default:
+        return { x: 24, y: 24, width: width - 48, height: height - 48 };
+    }
+  }
+
   function renderThemeCanvases(themeId, payload) {
     const theme = getTheme(themeId);
     const { backgroundCanvas, overlayCanvas, index = 0, totalCount = 1 } = payload;
@@ -215,5 +287,5 @@
     }
   }
 
-  global.XHSStandaloneThemes = { CARD_WIDTH, CARD_HEIGHT, getTheme, listThemes, applyTheme, renderThemeCanvases };
+  global.XHSStandaloneThemes = { CARD_WIDTH, CARD_HEIGHT, getTheme, listThemes, applyTheme, getContentRect, renderThemeCanvases };
 }(window));

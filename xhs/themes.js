@@ -1,5 +1,5 @@
 /**
- * XHSStandaloneThemes - 小红书卡片主题库
+ * XHSStandaloneThemes - 小红书卡片主题库（精简版）
  * 
  * 新增功能：
  * - 每个模板定义 contentBox 属性，指定内容区域的位置和尺寸
@@ -151,62 +151,6 @@
     sunset: makeHtmlTheme({ id: 'sunset', name: 'Sunset', bgOuter: '#fff3e0', bgCard: '#fffaf5', primary: '#e64a19', accent: '#ff7043', secondary: '#5d4037', tagBg: '#ffe0b2', accentBorder: '#ffccbc', btnFrom: '#e64a19', btnTo: '#ff7043', fontFamily: "'Noto Sans SC', sans-serif", colorPalette: ['#FFF3E0', '#FBE9E7', '#FFECB3', '#FFF8E1', '#FFFDE7', '#FFF9C4', '#FFECB3', '#FFE0B2', '#FFCCBC', '#FFCDD2', '#F8BBD9', '#E1BEE7'] }),
     midnight: makeHtmlTheme({ id: 'midnight', name: 'Midnight', bgOuter: '#1a1a2e', bgCard: '#16213e', primary: '#e94560', accent: '#0f3460', secondary: '#c4c4c4', tagBg: '#1a1a2e', accentBorder: '#2a2a4e', btnFrom: '#e94560', btnTo: '#0f3460', fontFamily: "'Noto Sans SC', sans-serif", colorPalette: ['#2D2D5A', '#252548', '#1F1F3D', '#3D3D6B', '#4A4A8A', '#5C5CA3', '#3949AB', '#5C6BC0', '#7986CB', '#9FA8DA', '#1A237E', '#283593'] }),
     
-    // 复古拍立得 - 内容区域在纸张内，顶部是照片区域
-    polaroid: { 
-      id: 'polaroid', 
-      name: '复古拍立得', 
-      source: 'project', 
-      bgOuter: '#d9d9d9', 
-      bgCard: '#D6D6D6', 
-      bgColor: '#D6D6D6', 
-      textColor: '#2B2B2B', 
-      primary: '#D9534F', 
-      accent: '#D9534F', 
-      secondary: '#2B2B2B', 
-      tagBg: '#f3ebe7', 
-      accentBorder: '#d8cdc7', 
-      btnFrom: '#D9534F', 
-      btnTo: '#a94442', 
-      fontFamily: "'LXGW WenKai Screen', 'Kaiti SC', 'STKaiti', cursive", 
-      fontSize: 17, 
-      lineHeight: 1.6, 
-      letterSpacing: 0.2, 
-      textPadding: 60, 
-      showPageNumber: true,
-      // 内容区域：纸张(50,60) -> (310,420)，照片高度92，内容从 y=182 开始
-      contentBox: {
-        top: 182,
-        left: 50,
-        right: 50,
-        bottom: 60,
-        paddingTop: 20,
-        paddingBottom: 20,
-        paddingLeft: 30,
-        paddingRight: 30
-      },
-      drawBackground(ctx, width, height, theme) { 
-        fillBaseBackground(ctx, width, height, theme); 
-        ctx.drawImage(createNoiseTexture(width, height, 0.04), 0, 0); 
-        withCtx(ctx, () => { 
-          ctx.shadowColor = 'rgba(0,0,0,0.15)'; 
-          ctx.shadowBlur = 22; 
-          ctx.shadowOffsetY = 12; 
-          drawRoundedRect(ctx, 50, 60, width - 100, height - 120, 4, '#FAFAFA'); 
-        }); 
-        ctx.fillStyle = '#2C2C2C'; 
-        ctx.fillRect(80, 90, width - 160, 92); 
-      },
-      drawForeground(ctx, width, height, index, totalCount, theme) { 
-        withCtx(ctx, () => { 
-          ctx.translate(width / 2, 40); 
-          ctx.rotate(-0.05); 
-          ctx.fillStyle = 'rgba(255,255,255,0.42)'; 
-          ctx.fillRect(-70, -16, 140, 32); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme), { x: width - 75, y: height - 78, color: 'rgba(0,0,0,0.3)', font: 'italic 14px serif', padZero: true }); 
-      } 
-    },
-    
     // 效率笔记 - 内容区域在分隔线下方
     'notion-style': { 
       id: 'notion-style', 
@@ -318,7 +262,7 @@
           ctx.fillStyle = 'rgba(93,64,55,0.4)'; 
           ctx.font = 'italic 500 11px "Noto Serif SC", serif'; 
           ctx.textAlign = 'center'; 
-          ctx.fillText('CLASSIC LITERATURE', width / 2, 64); 
+          ctx.fillText('BENDIBAO', width / 2, 64); 
           ctx.fillStyle = '#5D4037'; 
           ctx.font = '16px serif'; 
           ctx.fillText('§', 65, 68); 
@@ -515,7 +459,7 @@
           ctx.fillStyle = '#1A1A1A'; 
           ctx.font = 'bold 12px serif'; 
           ctx.textAlign = 'left'; 
-          ctx.fillText('EDITORIAL', 45, 74); 
+          ctx.fillText('BENDIBAO', 45, 74); 
           ctx.fillStyle = 'rgba(26,26,26,0.6)'; 
           ctx.font = 'italic 10px serif'; 
           ctx.textAlign = 'right'; 
@@ -576,71 +520,6 @@
       },
       drawForeground(ctx, width, height, index, totalCount, theme) { 
         drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme)); 
-      } 
-    },
-    
-    // 暗夜深思
-    'deep-night': { 
-      id: 'deep-night', 
-      name: '暗夜深思', 
-      source: 'project', 
-      bgOuter: '#090909', 
-      bgCard: '#0D0D0D', 
-      bgColor: '#0D0D0D', 
-      textColor: '#E5E5E5', 
-      primary: '#00F5FF', 
-      accent: '#00F5FF', 
-      secondary: '#E5E5E5', 
-      tagBg: '#141414', 
-      accentBorder: '#1f1f1f', 
-      btnFrom: '#00F5FF', 
-      btnTo: '#0080a8', 
-      fontFamily: "-apple-system, system-ui, sans-serif", 
-      fontSize: 17, 
-      lineHeight: 1.7, 
-      letterSpacing: 0.4, 
-      textPadding: 40, 
-      showPageNumber: true,
-      contentBox: {
-        top: 30,
-        left: 20,
-        right: 20,
-        bottom: 65,
-        paddingTop: 35,
-        paddingBottom: 25,
-        paddingLeft: 40,
-        paddingRight: 40
-      },
-      drawBackground(ctx, width, height, theme) { 
-        const grad = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, width * 0.8); 
-        grad.addColorStop(0, '#1a1a1a'); 
-        grad.addColorStop(1, '#050505'); 
-        ctx.fillStyle = grad; 
-        ctx.fillRect(0, 0, width, height); 
-        const line = ctx.createLinearGradient(0, 0, 0, height); 
-        line.addColorStop(0, 'transparent'); 
-        line.addColorStop(0.2, theme.accent); 
-        line.addColorStop(0.8, theme.accent); 
-        line.addColorStop(1, 'transparent'); 
-        ctx.fillStyle = line; 
-        ctx.globalAlpha = 0.3; 
-        ctx.fillRect(0, 0, 3, height); 
-        ctx.globalAlpha = 1; 
-        drawRoundedRect(ctx, 20, 30, width - 40, height - 65, 16, 'rgba(255,255,255,0.02)', 'rgba(255,255,255,0.05)'); 
-      },
-      drawForeground(ctx, width, height, index, totalCount, theme) { 
-        withCtx(ctx, () => { 
-          ctx.fillStyle = 'rgba(229,229,229,0.3)'; 
-          ctx.font = '800 10px Inter, sans-serif'; 
-          ctx.textAlign = 'right'; 
-          ctx.fillText('// THOUGHT MODE ON', width - 24, 24); 
-          ctx.strokeStyle = 'rgba(229,229,229,0.2)'; 
-          ctx.beginPath(); 
-          ctx.moveTo(25, height - 60); 
-          ctx.lineTo(width - 25, height - 60); 
-          ctx.stroke(); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme), { color: 'rgba(255,255,255,0.3)', textAlign: 'left', x: 25, y: 25 }); 
       } 
     },
     
@@ -716,7 +595,7 @@
           ctx.fillStyle = '#6B7280'; 
           ctx.font = '700 9px sans-serif'; 
           ctx.textAlign = 'right'; 
-          ctx.fillText('CONFIDENTIAL / INTERNAL USE ONLY', width - 24, 24); 
+          ctx.fillText('BENDIBAO', width - 24, 24); 
         }); 
         drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme)); 
       } 
@@ -754,7 +633,7 @@
     }
   };
 
-  const themeOrder = ['pink', 'macaron', 'ocean', 'forest', 'sunset', 'midnight', 'polaroid', 'notion-style', 'elegant-book', 'ios-memo', 'swiss-studio', 'minimalist-magazine', 'aura-gradient', 'deep-night', 'pro-doc', 'blank'];
+  const themeOrder = ['pink', 'macaron', 'ocean', 'forest', 'sunset', 'midnight', 'notion-style', 'elegant-book', 'ios-memo', 'swiss-studio', 'minimalist-magazine', 'aura-gradient', 'pro-doc', 'blank'];
 
   function getTheme(themeId) {
     return themes[themeId] || themes.pink;

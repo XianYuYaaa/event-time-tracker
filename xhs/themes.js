@@ -234,9 +234,9 @@
         left: 0,
         right: 0,
         bottom: 30,
-        paddingTop: 20,
+        paddingTop: 5,
         paddingBottom: 20,
-        paddingLeft: 40,
+        paddingLeft: 30,
         paddingRight: 40
       },
       drawBackground(ctx, width, height, theme) { 
@@ -287,9 +287,9 @@
         left: 0,
         right: 0,
         bottom: 40,
-        paddingTop: 20,
+        paddingTop: 5,
         paddingBottom: 20,
-        paddingLeft: 55,
+        paddingLeft: 45,
         paddingRight: 55
       },
       drawBackground(ctx, width, height, theme) { 
@@ -355,9 +355,9 @@
         left: 15,
         right: 15,
         bottom: 55,
-        paddingTop: 38,
+        paddingTop: 20,
         paddingBottom: 15,
-        paddingLeft: 30,
+        paddingLeft: 21,
         paddingRight: 30
       },
       drawBackground(ctx, width, height, theme) { 
@@ -433,7 +433,7 @@
         bottom: 30,
         paddingTop: 20,
         paddingBottom: 20,
-        paddingLeft: 50,
+        paddingLeft: 25,
         paddingRight: 24
       },
       drawBackground(ctx, width, height, theme) { 
@@ -493,9 +493,9 @@
         left: 0,
         right: 0,
         bottom: 50,
-        paddingTop: 20,
+        paddingTop: 10,
         paddingBottom: 20,
-        paddingLeft: 45,
+        paddingLeft: 35,
         paddingRight: 45
       },
       drawBackground(ctx, width, height, theme) { 
@@ -552,9 +552,9 @@
         left: 25,
         right: 25,
         bottom: 35,
-        paddingTop: 30,
+        paddingTop: 20,
         paddingBottom: 20,
-        paddingLeft: 35,
+        paddingLeft: 15,
         paddingRight: 35
       },
       drawBackground(ctx, width, height, theme) { 
@@ -671,9 +671,9 @@
         left: 15,
         right: 15,
         bottom: 35,
-        paddingTop: 45,
+        paddingTop: 55,
         paddingBottom: 20,
-        paddingLeft: 30,
+        paddingLeft: 18,
         paddingRight: 30
       },
       drawBackground(ctx, width, height, theme) { 

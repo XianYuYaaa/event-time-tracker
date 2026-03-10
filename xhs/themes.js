@@ -174,7 +174,7 @@
       textPadding: 40, 
       showPageNumber: true,
       contentBox: {
-        top: 100,
+        top: 40,
         left: 0,
         right: 0,
         bottom: 30,
@@ -187,20 +187,6 @@
         fillBaseBackground(ctx, width, height, theme); 
       },
       drawForeground(ctx, width, height, index, totalCount, theme) { 
-        withCtx(ctx, () => { 
-          ctx.font = '14px ui-sans-serif, system-ui, sans-serif'; 
-          ctx.textAlign = 'left'; 
-          ctx.fillStyle = '#37352F'; 
-          ctx.fillText('N', 40, 60); 
-          ctx.fillStyle = '#9B9A97'; 
-          ctx.fillText('/ Workspace / Notes', 62, 60); 
-          ctx.strokeStyle = 'rgba(55,53,47,0.08)'; 
-          ctx.beginPath(); 
-          ctx.moveTo(40, 90); 
-          ctx.lineTo(width - 40, 90); 
-          ctx.stroke(); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme), { color: 'rgba(155,154,151,0.7)' }); 
       } 
     },
     
@@ -227,14 +213,14 @@
       textPadding: 55, 
       showPageNumber: true,
       contentBox: {
-        top: 95,
+        top: 40,
         left: 0,
         right: 0,
         bottom: 40,
         paddingTop: 5,
         paddingBottom: 20,
-        paddingLeft: 45,
-        paddingRight: 55
+        paddingLeft: 35,
+        paddingRight: 30
       },
       drawBackground(ctx, width, height, theme) { 
         const grad = ctx.createLinearGradient(width, 0, 0, 0); 
@@ -253,21 +239,6 @@
         ctx.fillRect(0, 0, width * 0.12, height); 
       },
       drawForeground(ctx, width, height, index, totalCount, theme) { 
-        withCtx(ctx, () => { 
-          ctx.strokeStyle = 'rgba(93,64,55,0.12)'; 
-          ctx.beginPath(); 
-          ctx.moveTo(65, 80); 
-          ctx.lineTo(width - 55, 80); 
-          ctx.stroke(); 
-          ctx.fillStyle = 'rgba(93,64,55,0.4)'; 
-          ctx.font = 'italic 500 11px "Noto Serif SC", serif'; 
-          ctx.textAlign = 'center'; 
-          ctx.fillText('BENDIBAO', width / 2, 64); 
-          ctx.fillStyle = '#5D4037'; 
-          ctx.font = '16px serif'; 
-          ctx.fillText('§', 65, 68); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme), { color: 'rgba(93,64,55,0.4)', font: '500 12px "Noto Serif SC", serif', prefix: 'P. ', padZero: true }); 
       } 
     },
     
@@ -295,10 +266,9 @@
       showPageNumber: true,
       // 内容区域：纸张(15,55)-(345,425)，日期栏占35px
       contentBox: {
-        top: 55,
+        top: 25,
         left: 15,
         right: 15,
-        bottom: 55,
         paddingTop: 20,
         paddingBottom: 15,
         paddingLeft: 21,
@@ -310,7 +280,7 @@
           ctx.shadowColor = 'rgba(0,0,0,0.05)'; 
           ctx.shadowBlur = 18; 
           ctx.shadowOffsetY = 5; 
-          drawRoundedRect(ctx, 15, 55, width - 30, height - 110, 12, '#ffffff'); 
+          drawRoundedRect(ctx, 15, 25, width - 30, height - 50, 12, '#ffffff'); 
         }); 
         withCtx(ctx, () => { 
           ctx.strokeStyle = '#F2F2F7'; 
@@ -324,27 +294,6 @@
         }); 
       },
       drawForeground(ctx, width, height, index, totalCount, theme) { 
-        const now = new Date(); 
-        withCtx(ctx, () => { 
-          ctx.fillStyle = '#FF9500'; 
-          ctx.font = '500 17px sans-serif'; 
-          ctx.textAlign = 'right'; 
-          ctx.fillText('完成', width - 24, 34); 
-          ctx.textAlign = 'left'; 
-          ctx.beginPath(); 
-          ctx.strokeStyle = '#FF9500'; 
-          ctx.lineWidth = 2.5; 
-          ctx.moveTo(25, 33); 
-          ctx.lineTo(18, 26); 
-          ctx.lineTo(25, 19); 
-          ctx.stroke(); 
-          ctx.fillText('备忘录', 32, 35); 
-          ctx.fillStyle = '#8E8E93'; 
-          ctx.font = '500 12px sans-serif'; 
-          ctx.textAlign = 'center'; 
-          ctx.fillText(`${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日`, width / 2, 35); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme)); 
       } 
     },
     
@@ -371,7 +320,7 @@
       textPadding: 50, 
       showPageNumber: true,
       contentBox: {
-        top: 35,
+        top: 25,
         left: 6,
         right: 0,
         bottom: 30,
@@ -395,18 +344,6 @@
         }); 
       },
       drawForeground(ctx, width, height, index, totalCount, theme) { 
-        withCtx(ctx, () => { 
-          ctx.fillStyle = '#1A1A1A'; 
-          ctx.font = '700 10px Helvetica'; 
-          ctx.textAlign = 'right'; 
-          ctx.fillText('REF. CH-8004', width - 24, 24); 
-          ctx.beginPath(); 
-          ctx.rect(width - 40, height - 40, 15, 15); 
-          ctx.strokeStyle = theme.accent; 
-          ctx.lineWidth = 2; 
-          ctx.stroke(); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme), { color: '#1A1A1A', font: '700 10px Helvetica', textAlign: 'left', x: 24, padZero: true }); 
       } 
     },
     
@@ -433,39 +370,16 @@
       textPadding: 45, 
       showPageNumber: true,
       contentBox: {
-        top: 95,
+        top: 35,
         left: 0,
         right: 0,
-        bottom: 50,
+        bottom: 0,
         paddingTop: 10,
         paddingBottom: 20,
         paddingLeft: 35,
-        paddingRight: 45
-      },
-      drawBackground(ctx, width, height, theme) { 
-        fillBaseBackground(ctx, width, height, theme); 
-        ctx.strokeStyle = hexToRgba(theme.textColor, 0.1); 
-        ctx.beginPath(); 
-        ctx.moveTo(45, 85); 
-        ctx.lineTo(width - 45, 85); 
-        ctx.stroke(); 
-        ctx.beginPath(); 
-        ctx.moveTo(45, height - 55); 
-        ctx.lineTo(width - 45, height - 55); 
-        ctx.stroke(); 
+        paddingRight: 25
       },
       drawForeground(ctx, width, height, index, totalCount, theme) { 
-        withCtx(ctx, () => { 
-          ctx.fillStyle = '#1A1A1A'; 
-          ctx.font = 'bold 12px serif'; 
-          ctx.textAlign = 'left'; 
-          ctx.fillText('BENDIBAO', 45, 74); 
-          ctx.fillStyle = 'rgba(26,26,26,0.6)'; 
-          ctx.font = 'italic 10px serif'; 
-          ctx.textAlign = 'right'; 
-          ctx.fillText('COLLECTION // VOL. 2026', width - 45, 74); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme), { x: width - 45, y: height - 35 }); 
       } 
     },
     
@@ -495,11 +409,11 @@
         top: 30,
         left: 25,
         right: 25,
-        bottom: 35,
+        bottom: 25,
         paddingTop: 20,
-        paddingBottom: 20,
+        paddingBottom: 15,
         paddingLeft: 15,
-        paddingRight: 35
+        paddingRight: 5
       },
       drawBackground(ctx, width, height, theme) { 
         fillBaseBackground(ctx, width, height, theme); 
@@ -549,23 +463,23 @@
         top: 40,
         left: 15,
         right: 15,
-        bottom: 35,
-        paddingTop: 55,
-        paddingBottom: 20,
+        bottom: 0,
+        paddingTop: 30,
+        paddingBottom: 10,
         paddingLeft: 18,
-        paddingRight: 30
+        paddingRight: 18
       },
       drawBackground(ctx, width, height, theme) { 
         fillBaseBackground(ctx, width, height, theme); 
         withCtx(ctx, () => { 
           ctx.strokeStyle = 'rgba(0,102,255,0.02)'; 
-          for (let i = 0; i < width; i += 20) { 
+          for (let i = 0; i < width; i += 10) { 
             ctx.beginPath(); 
             ctx.moveTo(i, 0); 
             ctx.lineTo(i, height); 
             ctx.stroke(); 
           } 
-          for (let i = 0; i < height; i += 20) { 
+          for (let i = 0; i < height; i += 10) { 
             ctx.beginPath(); 
             ctx.moveTo(0, i); 
             ctx.lineTo(width, i); 
@@ -576,28 +490,21 @@
           ctx.shadowColor = 'rgba(0,0,0,0.08)'; 
           ctx.shadowBlur = 24; 
           ctx.shadowOffsetY = 10; 
-          drawRoundedRect(ctx, 15, 40, width - 30, height - 75, 12, '#ffffff', 'rgba(0,0,0,0.05)'); 
+          drawRoundedRect(ctx, 15, 25, width - 30, height - 55, 12, '#ffffff', 'rgba(0,0,0,0.05)'); 
         }); 
-        drawRoundedRect(ctx, 15, 40, width - 30, 30, { tl: 12, tr: 12, bl: 0, br: 0 }, 'rgba(17,24,39,0.05)'); 
+        drawRoundedRect(ctx, 15, 25, width - 30, 30, { tl: 12, tr: 12, bl: 0, br: 0 }, 'rgba(17,24,39,0.05)'); 
         [['#FF5F56', 35], ['#FFBD2E', 53], ['#27C93F', 71]].forEach(([color, x]) => { 
           ctx.fillStyle = color; 
           ctx.beginPath(); 
-          ctx.arc(x, 55, 5, 0, Math.PI * 2); 
+          ctx.arc(x, 40, 5, 0, Math.PI * 2); 
           ctx.fill(); 
         }); 
         ctx.fillStyle = 'rgba(17,24,39,0.4)'; 
         ctx.font = '700 10px sans-serif'; 
         ctx.textAlign = 'center'; 
-        ctx.fillText('DOCUMENT VIEWER', width / 2, 59); 
+        ctx.fillText('DOCUMENT VIEWER', width / 2, 45); 
       },
       drawForeground(ctx, width, height, index, totalCount, theme) { 
-        withCtx(ctx, () => { 
-          ctx.fillStyle = '#6B7280'; 
-          ctx.font = '700 9px sans-serif'; 
-          ctx.textAlign = 'right'; 
-          ctx.fillText('BENDIBAO', width - 24, 24); 
-        }); 
-        drawPageNumber(ctx, width, height, index, totalCount, projectConfig(theme)); 
       } 
     },
     

@@ -20,12 +20,24 @@
 .image-container {
   position: relative;
   width: var(--xhs-card-width, 360px);
-  height: var(--xhs-card-height, 480px);
+  min-height: var(--xhs-card-min-height, 480px);
+  height: auto;
   overflow: hidden;
   box-sizing: border-box;
   background: var(--xhs-card-bg, var(--template-bg-color, #ffffff));
   border-radius: var(--xhs-card-radius, 0);
   box-shadow: var(--xhs-card-shadow, none);
+}
+
+/* 封面卡片保持固定高度 */
+.xhs-card-shell[data-type="cover"] .xhs-card {
+  height: 480px;
+}
+
+/* 非封面卡片使用自动高度 */
+.xhs-card-shell:not([data-type="cover"]) .xhs-card {
+  height: auto;
+  min-height: 480px;
 }
 
 .xhs-card,
@@ -38,9 +50,10 @@
 }
 
 /* 内容区域 - 使用 CSS 变量自适应模板 */
-.xhs-card__content,
-.card-content,
-.image-content {
+/* 封面卡片：使用绝对定位 */
+.xhs-card-shell[data-type="cover"] .xhs-card__content,
+.xhs-card-shell[data-type="cover"] .card-content,
+.xhs-card-shell[data-type="cover"] .image-content {
   position: absolute;
   z-index: 10;
   /* 根据 contentBox 定位 */
@@ -48,6 +61,29 @@
   left: var(--content-left, 0);
   right: var(--content-right, 0);
   bottom: var(--content-bottom, 0);
+  padding-top: var(--content-padding-top, 24px);
+  padding-bottom: var(--content-padding-bottom, 24px);
+  padding-left: var(--content-padding-left, 24px);
+  padding-right: var(--content-padding-right, 24px);
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* 非封面卡片：使用相对定位，让内容撑开容器 */
+/* 边框装饰通过 margin 避让 */
+.xhs-card-shell:not([data-type="cover"]) .xhs-card__content,
+.xhs-card-shell:not([data-type="cover"]) .card-content,
+.xhs-card-shell:not([data-type="cover"]) .image-content {
+  position: relative;
+  z-index: 10;
+  /* top/bottom/left/right 用于避开边框装饰 */
+  margin-top: var(--content-top, 0);
+  margin-bottom: var(--content-bottom, 0);
+  margin-left: var(--content-left, 0);
+  margin-right: var(--content-right, 0);
+  /* padding 用于内容区域的内边距 */
   padding-top: var(--content-padding-top, 24px);
   padding-bottom: var(--content-padding-bottom, 24px);
   padding-left: var(--content-padding-left, 24px);
@@ -77,20 +113,22 @@
 .xhs-card__bg,
 .bg-canvas {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
   opacity: 0.8;
 }
 
 .xhs-card__overlay,
 .overlay-canvas {
   position: absolute;
-  inset: 0;
-  z-index: 20;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 20;
   pointer-events: none;
 }
 

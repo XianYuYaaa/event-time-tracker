@@ -4,10 +4,11 @@
  * 新增功能：
  * - 每个模板定义 contentBox 属性，指定内容区域的位置和尺寸
  * - applyTheme() 自动设置 CSS 变量，让内容自适应模板布局
+ * - 支持动态卡片高度（非封面卡片根据内容自动延展）
  */
 (function (global) {
   const CARD_WIDTH = 360;
-  const CARD_HEIGHT = 480;
+  const CARD_MIN_HEIGHT = 480;
 
   function hexToRgba(hex, alpha) {
     const raw = String(hex || '').replace('#', '').trim();
@@ -607,5 +608,5 @@
     }
   }
 
-  global.XHSStandaloneThemes = { CARD_WIDTH, CARD_HEIGHT, getTheme, listThemes, applyTheme, renderThemeCanvases };
+  global.XHSStandaloneThemes = { CARD_WIDTH, CARD_MIN_HEIGHT, getTheme, listThemes, applyTheme, renderThemeCanvases };
 }(window));

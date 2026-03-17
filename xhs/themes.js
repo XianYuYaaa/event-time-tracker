@@ -168,7 +168,7 @@
       accentBorder: '#d9ebe6', 
       btnFrom: '#0F7B6C', 
       btnTo: '#0b5f54', 
-      fontFamily: "ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', Roboto, Arial, sans-serif", 
+      fontFamily: "'Noto Sans SC', sans-serif",  
       fontSize: 16, 
       lineHeight: 1.8, 
       letterSpacing: 0.2, 
